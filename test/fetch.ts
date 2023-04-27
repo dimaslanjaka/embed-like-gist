@@ -9,4 +9,5 @@ const parse = parseSource(
 fetchSource(parse).then((obj) => {
   writefile(path.join(__dirname, '../tmp/fetch-response.html'), obj.fullResponse);
   writefile(path.join(__dirname, '../tmp/fetch-separated.html'), obj.result);
+  console.log('language', parse.language);
 });
