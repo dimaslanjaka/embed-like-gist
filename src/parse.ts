@@ -1,3 +1,5 @@
+import langJSON from './languages.json';
+
 export interface parseOpts {
   fetchFromJsDelivr: boolean | 'on' | 'off';
   style: 'github' | 'gist';
@@ -137,6 +139,13 @@ export function parseSource(url: string, opts?: parseOpts) {
   const filePath = pathSplit.slice(5, pathSplit.length).join('/');
   const directoryPath = pathSplit.slice(5, pathSplit.length - 1).join('/');
   const fileExtension = filePath.split('.').length > 1 ? filePath.split('.').pop() : 'txt';
+
+  const language = langJSON.filter((o) => {
+    if (o.name == fileExtension) return true;
+    if (o.extensions.some((ext) => ext == fileExtension)) return true;
+    return false;
+  });
+
   const fileURL = target.href;
   // @FIXME: change url
   const sourceURL = new URL(
@@ -162,6 +171,10 @@ export function parseSource(url: string, opts?: parseOpts) {
     containerId,
     url,
     startLine,
+    /**
+     * programming language
+     */
+    language,
     ...config
   };
 }
