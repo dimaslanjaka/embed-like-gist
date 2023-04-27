@@ -4,6 +4,9 @@
   "description": "Embed a file from GitHub repository just like [GitHub Gist](https://gist.github.com/)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "jest",
     "build": "tsc -p tsconfig.build.json",
