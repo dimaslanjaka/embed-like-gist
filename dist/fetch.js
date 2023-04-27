@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var axios_1 = __importDefault(require("axios"));
+var highlight_js_1 = __importDefault(require("highlight.js"));
 /**
  * fetch source from parsed
  * @param parse parsed object
@@ -39,6 +40,7 @@ function fetchSource(parse) {
         codeText = codeTextSplit.join('\n');
         // Then add the newline back
         codeText = codeText + '\n';
+        var highlight = highlight_js_1.default.highlight(codeText, { language: parse.fileExtension });
         return {
             /**
              * full raw response
@@ -47,7 +49,11 @@ function fetchSource(parse) {
             /**
              * splitted result when `#L` exist in url
              */
-            result: codeText
+            result: codeText,
+            /**
+             * hihglighed codes using highlight.js
+             */
+            highlighted: highlight.value
         };
     });
 }

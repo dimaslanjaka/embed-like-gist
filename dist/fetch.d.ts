@@ -13,4 +13,8 @@ export default function fetchSource(parse: ReturnType<typeof parseSource>): Prom
      * splitted result when `#L` exist in url
      */
     result: string;
+    /**
+     * hihglighed codes using highlight.js
+     */
+    highlighted: string;
 }>;

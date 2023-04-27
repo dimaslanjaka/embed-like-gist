@@ -1,4 +1,4 @@
-export interface parseOpts {
+export interface GitEmbedParseOptions {
     fetchFromJsDelivr: boolean | 'on' | 'off';
     style: 'github' | 'gist';
     showBorder: boolean | 'on' | 'off';
@@ -15,7 +15,7 @@ export interface parseOpts {
  * @param opts
  * @returns
  */
-export declare function parseSource(url: string, opts?: parseOpts): {
+export declare function parseSource(url: string, opts?: GitEmbedParseOptions): {
     fetchFromJsDelivr: boolean | "on" | "off";
     style: "github" | "gist";
     showBorder: boolean | "on" | "off";
@@ -36,4 +36,8 @@ export declare function parseSource(url: string, opts?: parseOpts): {
     containerId: string;
     url: string;
     startLine: string | number;
+    /**
+     * programming language
+     */
+    language: string;
 };

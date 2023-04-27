@@ -10,8 +10,12 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parseSource = void 0;
+var languages_json_1 = __importDefault(require("./languages.json"));
 //<script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fdimaslanjaka%2Fstatic-blog-generator%2Fblob%2Fe8ef351552d57c5e28e016e39e78fef139a8e7b2%2F.github%2Fworkflows%2Fbuild-beta.yml%23L152-L158&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
 //<script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fdimaslanjaka%2Fstatic-blog-generator%2Fblob%2Fe8ef351552d57c5e28e016e39e78fef139a8e7b2%2F.github%2Fworkflows%2Fbuild-beta.yml%23L152-L158&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on&fetchFromJsDelivr=on"></script>
 /**
@@ -136,7 +140,16 @@ function parseSource(url, opts) {
     var branch = pathSplit[4];
     var filePath = pathSplit.slice(5, pathSplit.length).join('/');
     var directoryPath = pathSplit.slice(5, pathSplit.length - 1).join('/');
-    var fileExtension = filePath.split('.').length > 1 ? filePath.split('.').pop() : 'txt';
+    var fileExtension = filePath.split('.').length > 1 ? filePath.split('.').pop().trim() : 'txt';
+    // ^ 6 5 %
+    var language = (languages_json_1.default === null || languages_json_1.default === void 0 ? void 0 : languages_json_1.default.filter(function (o) {
+        var _a;
+        if (o.name == fileExtension)
+            return true;
+        if ((_a = o.extensions) === null || _a === void 0 ? void 0 : _a.some(function (ext) { return ext == '.' + fileExtension.replace(/^\./, ''); }))
+            return true;
+        return false;
+    })[0].name.toLowerCase()) || fileExtension;
     var fileURL = target.href;
     // @FIXME: change url
     var sourceURL = new URL('https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fdimaslanjaka%2Fstatic-blog-generator%2Fblob%2Fe8ef351552d57c5e28e016e39e78fef139a8e7b2%2F.github%2Fworkflows%2Fbuild-beta.yml%23L152-L158&style=github&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on');
@@ -147,6 +160,10 @@ function parseSource(url, opts) {
     var rawDirectoryURL = fetchFromJsDelivr
         ? "https://cdn.jsdelivr.net/gh/".concat(user, "/").concat(repository, "@").concat(branch, "/").concat(directoryPath, "/")
         : "https://raw.githubusercontent.com/".concat(user, "/").concat(repository, "/").concat(branch, "/").concat(directoryPath, "/");
-    return __assign({ rawDirectoryURL: rawDirectoryURL, rawFileURL: rawFileURL, serviceProvider: serviceProvider, fileURL: fileURL, fileExtension: fileExtension, styleClassName: styleClassName, isDarkStyle: isDarkStyle, endLine: endLine, containerId: containerId, url: url, startLine: startLine }, config);
+    return __assign({ rawDirectoryURL: rawDirectoryURL, rawFileURL: rawFileURL, serviceProvider: serviceProvider, fileURL: fileURL, fileExtension: fileExtension, styleClassName: styleClassName, isDarkStyle: isDarkStyle, endLine: endLine, containerId: containerId, url: url, startLine: startLine, 
+        /**
+         * programming language
+         */
+        language: language }, config);
 }
 exports.parseSource = parseSource;
