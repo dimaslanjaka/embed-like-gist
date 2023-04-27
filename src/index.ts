@@ -7,7 +7,7 @@ import { GitEmbedParseOptions, parseSource } from './parse';
  * @param options
  * @returns
  */
-function git_embed(url: string, options?: GitEmbedParseOptions) {
+function gitEmbed(url: string, options?: GitEmbedParseOptions) {
   const parse = parseSource(url, options);
   const fetch = fetchSource(parse);
   return {
@@ -16,4 +16,4 @@ function git_embed(url: string, options?: GitEmbedParseOptions) {
   };
 }
 
-exports = git_embed;
+exports = gitEmbed;

@@ -22,9 +22,9 @@ var parse_1 = require("./parse");
  * @param options
  * @returns
  */
-function git_embed(url, options) {
+function gitEmbed(url, options) {
     var parse = (0, parse_1.parseSource)(url, options);
     var fetch = (0, fetch_1.default)(parse);
     return __assign({ parseResult: parse }, fetch);
 }
-exports = git_embed;
+exports = gitEmbed;
