@@ -138,14 +138,17 @@ export function parseSource(url: string, opts?: parseOpts) {
   const branch = pathSplit[4];
   const filePath = pathSplit.slice(5, pathSplit.length).join('/');
   const directoryPath = pathSplit.slice(5, pathSplit.length - 1).join('/');
-  const fileExtension = filePath.split('.').length > 1 ? filePath.split('.').pop() : 'txt';
+  const fileExtension = filePath.split('.').length > 1 ? filePath.split('.').pop().trim() : 'txt';
 
+  // ^ 6 5 %
   const language =
-    langJSON?.filter((o) => {
-      if (o.name == fileExtension) return true;
-      if (o.extensions?.some((ext) => ext == fileExtension)) return true;
-      return false;
-    })[0] || fileExtension;
+    langJSON
+      ?.filter((o) => {
+        if (o.name == fileExtension) return true;
+        if (o.extensions?.some((ext) => ext == '.' + fileExtension.replace(/^\./, ''))) return true;
+        return false;
+      })[0]
+      .name.toLowerCase() || fileExtension;
 
   const fileURL = target.href;
   // @FIXME: change url
