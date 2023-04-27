@@ -1,4 +1,5 @@
 import axios from 'axios';
+import hljs from 'highlight.js';
 import { parseSource } from './parse';
 
 /**
@@ -40,6 +41,8 @@ export default function fetchSource(parse: ReturnType<typeof parseSource>) {
     // Then add the newline back
     codeText = codeText + '\n';
 
+    const highlight = hljs.highlight(codeText, { language: parse.fileExtension });
+
     return {
       /**
        * full raw response
@@ -48,7 +51,11 @@ export default function fetchSource(parse: ReturnType<typeof parseSource>) {
       /**
        * splitted result when `#L` exist in url
        */
-      result: codeText
+      result: codeText,
+      /**
+       * hihglighed codes using highlight.js
+       */
+      highlighted: highlight.value
     };
   });
 }
