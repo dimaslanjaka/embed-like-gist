@@ -143,7 +143,7 @@ export function parseSource(url: string, opts?: parseOpts) {
   const language =
     langJSON?.filter((o) => {
       if (o.name == fileExtension) return true;
-      if (o.extensions.some((ext) => ext == fileExtension)) return true;
+      if (o.extensions?.some((ext) => ext == fileExtension)) return true;
       return false;
     }) || fileExtension;
 
