@@ -4,6 +4,9 @@
   "description": "Embed a file from GitHub repository just like [GitHub Gist](https://gist.github.com/)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "url": "git+https://github.com/dimaslanjaka/embed-like-gist.git"
+  },
   "files": [
     "dist"
   ],
@@ -14,8 +17,11 @@
     "clean": "rm -rf dist",
     "clean-build": "yarn run clean && yarn run build"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "github",
+    "embed"
+  ],
+  "author": "Dimas Lanjaka <dimaslanjaka@gmail.com> (https://www.webmanajemen.com)",
   "license": "ISC",
   "devDependencies": {
     "@jest/globals": "^29.5.0",
@@ -28,5 +34,12 @@
     "axios": "^1.3.6",
     "highlight.js": "^11.7.0",
     "sbg-utility": "^1.0.9"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "bugs": {
+    "url": "https://github.com/dimaslanjaka/embed-like-gist/issues"
+  },
+  "homepage": "https://github.com/dimaslanjaka/embed-like-gist#readme"
 }
