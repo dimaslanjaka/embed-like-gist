@@ -140,11 +140,12 @@ export function parseSource(url: string, opts?: parseOpts) {
   const directoryPath = pathSplit.slice(5, pathSplit.length - 1).join('/');
   const fileExtension = filePath.split('.').length > 1 ? filePath.split('.').pop() : 'txt';
 
-  const language = langJSON.filter((o) => {
-    if (o.name == fileExtension) return true;
-    if (o.extensions.some((ext) => ext == fileExtension)) return true;
-    return false;
-  });
+  const language =
+    langJSON?.filter((o) => {
+      if (o.name == fileExtension) return true;
+      if (o.extensions.some((ext) => ext == fileExtension)) return true;
+      return false;
+    }) || fileExtension;
 
   const fileURL = target.href;
   // @FIXME: change url
