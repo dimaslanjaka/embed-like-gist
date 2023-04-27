@@ -1,6 +1,6 @@
 import langJSON from './languages.json';
 
-export interface parseOpts {
+export interface GitEmbedParseOptions {
   fetchFromJsDelivr: boolean | 'on' | 'off';
   style: 'github' | 'gist';
   showBorder: boolean | 'on' | 'off';
@@ -21,8 +21,8 @@ export interface parseOpts {
  * @param opts
  * @returns
  */
-export function parseSource(url: string, opts?: parseOpts) {
-  const defaults: parseOpts = {
+export function parseSource(url: string, opts?: GitEmbedParseOptions) {
+  const defaults: GitEmbedParseOptions = {
     fetchFromJsDelivr: false,
     style: 'github',
     tabSize: 8,
