@@ -27,4 +27,4 @@ function gitEmbed(url, options) {
     var fetch = (0, fetch_1.default)(parse);
     return __assign({ parseResult: parse }, fetch);
 }
-exports = gitEmbed;
+exports.default = gitEmbed;

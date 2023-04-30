@@ -1,6 +1,6 @@
 {
   "name": "git-embed",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Embed a file from GitHub repository just like [GitHub Gist](https://gist.github.com/)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -16,4 +16,4 @@ function gitEmbed(url: string, options?: GitEmbedParseOptions) {
   };
 }
 
-exports = gitEmbed;
+export default gitEmbed;
