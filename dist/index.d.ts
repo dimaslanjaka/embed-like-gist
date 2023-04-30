@@ -5,7 +5,7 @@ import { GitEmbedParseOptions } from './parse';
  * @param options
  * @returns
  */
-declare function gitEmbed(url: string, options?: GitEmbedParseOptions): {
+declare function gitEmbed(url: string, options?: Partial<GitEmbedParseOptions>): {
     then<TResult1 = {
         fullResponse: string;
         result: string;
