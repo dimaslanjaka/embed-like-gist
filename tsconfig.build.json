@@ -1,8 +1,25 @@
 {
-  "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "dist",
-    "target": "ES5"
+    /* Basic Options */
+    "target": "ES5",
+    "module": "commonjs",
+    "lib": ["ESNext"],
+
+    // enable d.ts
+    "declaration": true,
+
+    /* Strict Type-Checking Options */
+    "strict": false,
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+
+    /* Advanced Options */
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
   },
   "include": ["src/index.ts"]
 }
