@@ -47,7 +47,7 @@ function fetchSource(parse) {
              */
             fullResponse: fullResponse,
             /**
-             * splitted result when `#L` exist in url
+             * splitted result when `#L` exist in url otherwise full codes
              */
             result: codeText,
             /**

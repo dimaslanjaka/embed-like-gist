@@ -49,7 +49,9 @@ export default function fetchSource(parse: ReturnType<typeof parseSource>) {
        */
       fullResponse,
       /**
-       * splitted result when `#L` exist in url
+       * raw fetch response
+       *
+       * splitted result when `#L` exist in url otherwise full codes
        */
       result: codeText,
       /**
