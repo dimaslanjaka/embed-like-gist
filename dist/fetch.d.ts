@@ -10,7 +10,9 @@ export default function fetchSource(parse: ReturnType<typeof parseSource>): Prom
      */
     fullResponse: string;
     /**
-     * splitted result when `#L` exist in url
+     * raw fetch response
+     *
+     * splitted result when `#L` exist in url otherwise full codes
      */
     result: string;
     /**
