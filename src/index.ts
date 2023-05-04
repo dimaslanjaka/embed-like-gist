@@ -7,9 +7,9 @@ import { GitEmbedParseOptions, parseSource } from './parse';
  * @param options
  * @returns
  */
-function gitEmbed(url: string, options?: Partial<GitEmbedParseOptions>) {
+async function gitEmbed(url: string, options?: Partial<GitEmbedParseOptions>) {
   const parse = parseSource(url, options as Required<GitEmbedParseOptions>);
-  const fetch = fetchSource(parse);
+  const fetch = await fetchSource(parse);
   return {
     parseResult: parse,
     ...fetch

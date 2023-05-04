@@ -5,27 +5,10 @@ import { GitEmbedParseOptions } from './parse';
  * @param options
  * @returns
  */
-declare function gitEmbed(url: string, options?: Partial<GitEmbedParseOptions>): {
-    then<TResult1 = {
-        fullResponse: string;
-        result: string;
-        highlighted: string;
-    }, TResult2 = never>(onfulfilled?: (value: {
-        fullResponse: string;
-        result: string;
-        highlighted: string;
-    }) => TResult1 | PromiseLike<TResult1>, onrejected?: (reason: any) => TResult2 | PromiseLike<TResult2>): Promise<TResult1 | TResult2>;
-    catch<TResult = never>(onrejected?: (reason: any) => TResult | PromiseLike<TResult>): Promise<{
-        fullResponse: string;
-        result: string;
-        highlighted: string;
-    } | TResult>;
-    finally(onfinally?: () => void): Promise<{
-        fullResponse: string;
-        result: string;
-        highlighted: string;
-    }>;
-    [Symbol.toStringTag]: string;
+declare function gitEmbed(url: string, options?: Partial<GitEmbedParseOptions>): Promise<{
+    fullResponse: string;
+    result: string;
+    highlighted: string;
     parseResult: {
         fetchFromJsDelivr: boolean | "on" | "off";
         style: "github" | "gist";
@@ -49,5 +32,5 @@ declare function gitEmbed(url: string, options?: Partial<GitEmbedParseOptions>):
         startLine: string | number;
         language: string;
     };
-};
+}>;
 export default gitEmbed;
