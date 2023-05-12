@@ -1,5 +1,4 @@
-import { describe, test } from '@jest/globals';
-import assert from 'node:assert';
+import { describe, expect, test } from '@jest/globals';
 import { parseSource } from '../src/parse';
 
 describe('test parse', function () {
@@ -12,7 +11,11 @@ describe('test parse', function () {
     const url = urls[key];
     test(key + ' url', function () {
       const parse = parseSource(url);
-      assert.ok('additional' in parse);
+      expect('url' in parse).toBeTruthy();
+      expect(
+        parse.fileURL ===
+          'https://github.com/dimaslanjaka/static-blog-generator/blob/e8ef351552d57c5e28e016e39e78fef139a8e7b2/.github/workflows/build-beta.yml#L152-L158'
+      ).toBeTruthy();
     });
   }
 });

@@ -4,3 +4,4 @@
 **/.yarn/version*
 **/node_modules
 **/tmp
+/coverage
