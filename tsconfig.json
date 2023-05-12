@@ -2,11 +2,10 @@
   "extends": "./tsconfig.build.json",
   "compilerOptions": {
     "outDir": "tmp/dist",
-    "composite": true,
-    "tsBuildInfoFile": "./tmp/tsconfig.tsbuildinfo",
     "allowJs": true,
-    "checkJs": false
+    "checkJs": false,
+    "resolveJsonModule": true
   },
-  "include": ["src/**/*", "test/**/*"],
+  "include": ["src", "test"],
   "exclude": ["node_modules"]
 }
