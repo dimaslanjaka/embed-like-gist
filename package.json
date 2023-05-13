@@ -1,6 +1,6 @@
 {
   "name": "git-embed",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Embed a file from GitHub repository just like [GitHub Gist](https://gist.github.com/)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,8 +14,7 @@
     "test": "jest",
     "build": "tsc -p tsconfig.build.json",
     "update:ncu": "npx npm-check-updates --doctor -u -x chalk,highlight.js,jsdom --enginesNode 14",
-    "clean": "rm -rf dist",
-    "clean-build": "yarn run clean && yarn run build",
+    "clean": "rm -rf dist && yarn run build",
     "lint": "eslint --fix",
     "prepare": "husky install"
   },
