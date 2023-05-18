@@ -14,6 +14,7 @@
     "test": "jest",
     "build": "tsc -p tsconfig.build.json",
     "update:ncu": "npx npm-check-updates --doctor -u -x chalk,highlight.js,jsdom --enginesNode 14",
+    "update": "run-s \"update:**\"",
     "clean": "rm -rf dist && yarn run build",
     "lint": "eslint --fix",
     "prepare": "husky install"
