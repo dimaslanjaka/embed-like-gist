@@ -4,7 +4,8 @@
     "outDir": "tmp/dist",
     "allowJs": true,
     "checkJs": false,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "noEmit": true
   },
   "include": ["src", "test"],
   "exclude": ["node_modules"]
